@@ -5,6 +5,7 @@
 @layer base {
   html {
     font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-paper text-ink900 antialiased;
@@ -15,6 +16,12 @@
   :focus-visible {
     outline: 2px solid #B8863B;
     outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 

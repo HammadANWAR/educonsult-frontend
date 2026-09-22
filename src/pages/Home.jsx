@@ -37,28 +37,43 @@ const FEATURES = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-paper">
-      <header className="border-b border-line bg-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-sm bg-ink-600 text-gold-300">
+      <header className="sticky top-0 z-30 border-b border-line bg-white/95 shadow-sm backdrop-blur dark:bg-ink-800/95">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5">
+          <a href="#home" className="flex items-center gap-2.5">
+            <div className="flex h-9 w-9 items-center justify-center rounded-sm bg-ink-600 text-gold-300 shadow-sm">
               <GraduationCap size={20} strokeWidth={1.8} />
             </div>
             <span className="font-serif text-lg text-ink-700">EduConsult</span>
-          </div>
-          <nav className="flex items-center gap-3">
+          </a>
+          <nav aria-label="Main navigation" className="hidden items-center gap-7 md:flex">
+            <a href="#home" className="text-sm font-medium text-ink-600 transition-colors hover:text-gold-600">
+              Home
+            </a>
+            <a href="#about" className="text-sm font-medium text-ink-500 transition-colors hover:text-gold-600">
+              About us
+            </a>
+            <a href="#services" className="text-sm font-medium text-ink-500 transition-colors hover:text-gold-600">
+              Services
+            </a>
+            <a href="#contact" className="text-sm font-medium text-ink-500 transition-colors hover:text-gold-600">
+              Contact us
+            </a>
+          </nav>
+          <div className="flex items-center gap-2 sm:gap-3">
             <ThemeToggle />
-            <Link to="/login" className="btn-ghost text-sm">
+            <Link to="/login" className="hidden text-sm font-medium text-ink-600 transition-colors hover:text-gold-600 sm:inline-flex">
               Log in
             </Link>
-            <Link to="/register" className="btn-gold text-sm">
+            <Link to="/register" className="btn-gold px-3.5 py-2 text-xs sm:px-4 sm:py-2.5 sm:text-sm">
               Get started
             </Link>
-          </nav>
+          </div>
         </div>
       </header>
 
       <section
-        className="relative isolate overflow-hidden bg-ink-700 bg-cover bg-center"
+        id="home"
+        className="scroll-mt-24 relative isolate overflow-hidden bg-ink-700 bg-cover bg-center"
         style={{
           backgroundImage:
             "linear-gradient(90deg, rgba(11, 18, 32, .96) 0%, rgba(22, 34, 60, .88) 48%, rgba(22, 34, 60, .35) 100%), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=2000&q=85')",
@@ -115,7 +130,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-line bg-white py-16">
+      <section id="services" className="scroll-mt-24 border-t border-line bg-white py-16">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 sm:grid-cols-2 lg:grid-cols-4">
           {FEATURES.map(({ icon: Icon, title, body }) => (
             <div key={title}>
@@ -127,7 +142,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+      <section id="about" className="scroll-mt-24 mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
         <div className="relative">
           <img
             src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1100&q=85"
@@ -187,7 +202,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section id="contact" className="scroll-mt-24 mx-auto max-w-6xl px-6 py-20">
         <div className="relative overflow-hidden bg-ink-700 px-8 py-12 sm:px-12">
           <div className="relative z-10 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
