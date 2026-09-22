@@ -12,6 +12,7 @@ import {
   History,
   UserCog,
   StickyNote,
+  GraduationCap,
 } from 'lucide-react';
 
 const NAV_BY_ROLE = {
@@ -41,8 +42,8 @@ export default function Sidebar({ role }) {
   return (
     <aside className="hidden w-60 shrink-0 border-r border-line bg-white md:flex md:flex-col">
       <div className="flex h-16 items-center gap-2 border-b border-line px-5">
-        <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-ink-600 font-serif text-sm text-white">
-          E
+        <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-ink-600 text-gold-300">
+          <GraduationCap size={18} strokeWidth={1.8} />
         </div>
         <span className="font-serif text-lg text-ink-700">EduConsult</span>
       </div>

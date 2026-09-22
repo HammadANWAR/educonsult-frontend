@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { GraduationCap } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const DEMO_ACCOUNTS = [
@@ -44,8 +45,8 @@ export default function Login() {
       <div className="w-full max-w-md">
         <div className="mb-8 text-center">
           <Link to="/" className="inline-flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-ink-600 font-serif text-sm text-white">
-              E
+            <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-ink-600 text-gold-300">
+              <GraduationCap size={18} strokeWidth={1.8} />
             </div>
             <span className="font-serif text-lg text-ink-700">EduConsult</span>
           </Link>

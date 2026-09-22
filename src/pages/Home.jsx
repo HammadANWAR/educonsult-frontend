@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CalendarCheck, Search, MessageSquareText, ShieldCheck } from 'lucide-react';
+import { CalendarCheck, GraduationCap, Search, MessageSquareText, ShieldCheck, ArrowUpRight } from 'lucide-react';
 
 const FEATURES = [
   {
@@ -31,8 +31,8 @@ export default function Home() {
       <header className="border-b border-line bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-ink-600 font-serif text-sm text-white">
-              E
+            <div className="flex h-9 w-9 items-center justify-center rounded-sm bg-ink-600 text-gold-300">
+              <GraduationCap size={20} strokeWidth={1.8} />
             </div>
             <span className="font-serif text-lg text-ink-700">EduConsult</span>
           </div>
@@ -47,23 +47,44 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="max-w-2xl">
-          <p className="mb-4 text-sm font-medium text-gold-600">For schools, colleges &amp; universities</p>
-          <h1 className="font-serif text-5xl leading-tight text-ink-700">
-            Office hours, without the guesswork.
-          </h1>
-          <p className="mt-5 max-w-lg text-lg leading-relaxed text-ink-500">
-            EduConsult gives students a clear way to book time with advisors, career counselors, and project
-            supervisors — and gives your institution a record of every conversation.
-          </p>
-          <div className="mt-8 flex gap-3">
-            <Link to="/register" className="btn-gold px-6 py-3">
-              Book your first appointment
-            </Link>
-            <Link to="/login" className="btn-ghost px-6 py-3">
-              I already have an account
-            </Link>
+      <section
+        className="relative isolate overflow-hidden bg-ink-700 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "linear-gradient(90deg, rgba(11, 18, 32, .96) 0%, rgba(22, 34, 60, .88) 48%, rgba(22, 34, 60, .35) 100%), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=2000&q=85')",
+        }}
+      >
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:py-28">
+          <div className="max-w-2xl">
+            <p className="mb-5 text-sm font-medium uppercase tracking-[0.18em] text-gold-300">For the next step</p>
+            <h1 className="font-serif text-5xl leading-[1.05] text-white sm:text-6xl">
+              Better guidance begins with a conversation.
+            </h1>
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-ink-100">
+              Find the right advisor, see their real availability, and turn a quick meeting into a clearer path
+              forward.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Link to="/register" className="btn-gold px-6 py-3">
+                Book your first appointment <ArrowUpRight size={17} />
+              </Link>
+              <Link to="/login" className="inline-flex items-center justify-center rounded-sm border border-white/30 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10">
+                I already have an account
+              </Link>
+            </div>
+          </div>
+
+          <div className="hidden justify-self-end lg:block">
+            <div className="w-72 border border-white/20 bg-white/95 p-5 shadow-2xl backdrop-blur-sm">
+              <div className="mb-8 flex items-center justify-between">
+                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-400">Your next step</span>
+                <CalendarCheck size={19} className="text-gold-600" />
+              </div>
+              <p className="font-serif text-2xl leading-tight text-ink-700">Make time for the questions that matter.</p>
+              <div className="mt-7 border-t border-line pt-4 text-sm text-ink-500">
+                <span className="font-medium text-ink-700">1,200+</span> student conversations organized
+              </div>
+            </div>
           </div>
         </div>
       </section>
