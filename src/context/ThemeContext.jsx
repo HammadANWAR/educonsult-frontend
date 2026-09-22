@@ -5,7 +5,7 @@ const ThemeContext = createContext(null);
 function getInitialTheme() {
   const savedTheme = localStorage.getItem('educonsult_theme');
   if (savedTheme === 'dark' || savedTheme === 'light') return savedTheme;
-  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return 'dark';
 }
 
 export function ThemeProvider({ children }) {

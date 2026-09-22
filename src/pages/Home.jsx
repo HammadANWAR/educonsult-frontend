@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, CalendarCheck, Check, MessageSquareText, Search, ShieldCheck } from 'lucide-react';
+import { ArrowUpRight, CalendarCheck, Check, ClipboardCheck, MessageSquareText, Search, ShieldCheck } from 'lucide-react';
 import ThemeToggle from '../components/ThemeToggle';
 
 const FEATURES = [
@@ -120,6 +120,39 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="about" className="scroll-mt-24 mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+        <div className="relative">
+          <img
+            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1100&q=85"
+            alt="Students collaborating in a bright classroom"
+            className="h-[380px] w-full object-cover"
+          />
+          <div className="absolute -bottom-5 right-5 max-w-[230px] bg-gold-500 p-5 text-white shadow-xl">
+            <p className="font-serif text-xl leading-tight">A clearer path starts with the right question.</p>
+          </div>
+        </div>
+        <div className="lg:pl-8">
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.18em] text-gold-600">About EduConsult</p>
+          <h2 className="max-w-xl font-serif text-4xl leading-tight text-ink-700 sm:text-5xl">
+            Guidance that keeps people moving forward.
+          </h2>
+          <p className="mt-5 max-w-lg text-base leading-relaxed text-ink-500">
+            EduConsult brings students, consultants, and academic teams into one dependable place. We make it easier
+            to ask the right question, find the right person, and keep progress visible after the meeting ends.
+          </p>
+          <ul className="mt-7 space-y-3 text-sm text-ink-600">
+            {['Availability that reflects real working hours', 'A complete record for every consultation', 'Simple oversight for departments and coordinators'].map((item) => (
+              <li key={item} className="flex items-center gap-3">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold-100 text-gold-700">
+                  <Check size={13} strokeWidth={2.5} />
+                </span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section id="services" className="scroll-mt-24 border-t border-line bg-white py-16">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 sm:grid-cols-2 lg:grid-cols-4">
           {FEATURES.map(({ icon: Icon, title, body }) => (
@@ -132,11 +165,36 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="scroll-mt-24 mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+      <section className="border-y border-line bg-paper py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-10 max-w-2xl">
+            <p className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-gold-600">A simpler way forward</p>
+            <h2 className="font-serif text-4xl leading-tight text-ink-700 sm:text-5xl">From question to progress in three clear steps.</h2>
+          </div>
+          <div className="grid gap-8 md:grid-cols-3">
+            {[
+              [Search, 'Find your consultant', 'Browse by department, expertise, or the kind of guidance you need.'],
+              [CalendarCheck, 'Choose a time', 'See real availability and request an appointment without the back-and-forth.'],
+              [ClipboardCheck, 'Keep moving', 'Return to your appointments and consultation notes whenever the next question arrives.'],
+            ].map(([Icon, title, body], index) => (
+              <div key={title} className="border-t-2 border-gold-500 pt-5">
+                <div className="mb-5 flex items-center justify-between">
+                  <Icon size={24} className="text-gold-600" strokeWidth={1.7} />
+                  <span className="font-serif text-3xl text-ink-200">0{index + 1}</span>
+                </div>
+                <h3 className="font-serif text-2xl text-ink-700">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-500">{body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
         <div className="relative">
           <img
-            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1100&q=85"
-            alt="Students collaborating in a bright classroom"
+            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1100&q=85"
+            alt="A team collaborating around a table"
             className="h-[420px] w-full object-cover"
           />
           <div className="absolute -bottom-5 right-5 max-w-[230px] bg-gold-500 p-5 text-white shadow-xl">
