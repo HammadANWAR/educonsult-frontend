@@ -9,6 +9,7 @@ import {
   Search,
   ShieldCheck,
 } from 'lucide-react';
+import ThemeToggle from '../components/ThemeToggle';
 
 const FEATURES = [
   {
@@ -45,6 +46,7 @@ export default function Home() {
             <span className="font-serif text-lg text-ink-700">EduConsult</span>
           </div>
           <nav className="flex items-center gap-3">
+            <ThemeToggle />
             <Link to="/login" className="btn-ghost text-sm">
               Log in
             </Link>
@@ -83,14 +85,14 @@ export default function Home() {
           </div>
 
           <div className="hidden justify-self-end lg:block">
-            <div className="w-72 border border-white/20 bg-white/95 p-5 shadow-2xl backdrop-blur-sm">
+            <div className="w-72 border border-white/20 bg-white/95 p-5 shadow-2xl backdrop-blur-sm dark:border-white/20 dark:bg-ink-800/95">
               <div className="mb-8 flex items-center justify-between">
-                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-400">Your next step</span>
+                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-400 dark:text-ink-200">Your next step</span>
                 <CalendarCheck size={19} className="text-gold-600" />
               </div>
-              <p className="font-serif text-2xl leading-tight text-ink-700">Make time for the questions that matter.</p>
-              <div className="mt-7 border-t border-line pt-4 text-sm text-ink-500">
-                <span className="font-medium text-ink-700">1,200+</span> student conversations organized
+              <p className="font-serif text-2xl leading-tight text-ink-700 dark:text-white">Make time for the questions that matter.</p>
+              <div className="mt-7 border-t border-line pt-4 text-sm text-ink-500 dark:border-white/20 dark:text-ink-200">
+                <span className="font-medium text-ink-700 dark:text-white">1,200+</span> student conversations organized
               </div>
             </div>
           </div>

@@ -3,6 +3,7 @@ import { Bell, LogOut, ChevronDown } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { getNotifications } from '../services/appointmentService';
+import ThemeToggle from './ThemeToggle';
 
 export default function TopBar({ title }) {
   const { user, logout } = useAuth();
@@ -34,6 +35,7 @@ export default function TopBar({ title }) {
     <header className="flex h-16 items-center justify-between border-b border-line bg-white px-6">
       <h1 className="font-serif text-xl text-ink-700">{title}</h1>
       <div ref={panelRef} className="flex items-center gap-4">
+        <ThemeToggle />
         <div className="relative">
           <button
             onClick={() => setOpen((v) => !v)}
