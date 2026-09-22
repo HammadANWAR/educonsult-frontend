@@ -1,5 +1,6 @@
 import api, { USE_MOCK, mockDelay } from './api';
 import { getDb, nextId, persist } from './mockData';
+import { getDefaultAvatar } from './avatar';
 
 export async function getConsultants({ search = '', departmentId = '', categoryName = '' } = {}) {
   if (USE_MOCK) {
@@ -21,7 +22,11 @@ export async function getConsultants({ search = '', departmentId = '', categoryN
       list = list.filter((c) => c.specializations.includes(categoryName));
     }
     return mockDelay(
-      list.map((c) => ({ ...c, departmentName: db.departments.find((d) => d.id === c.departmentId)?.name }))
+      list.map((c) => ({
+        ...c,
+        avatar: c.avatar || getDefaultAvatar(c.email || c.name || c.id),
+        departmentName: db.departments.find((d) => d.id === c.departmentId)?.name,
+      }))
     );
   }
   // Real backend: GET /api/consultants
@@ -34,7 +39,11 @@ export async function getConsultantById(id) {
     const db = getDb();
     const c = db.consultants.find((x) => x.id === Number(id));
     if (!c) return mockDelay(null);
-    return mockDelay({ ...c, departmentName: db.departments.find((d) => d.id === c.departmentId)?.name });
+    return mockDelay({
+      ...c,
+      avatar: c.avatar || getDefaultAvatar(c.email || c.name || c.id),
+      departmentName: db.departments.find((d) => d.id === c.departmentId)?.name,
+    });
   }
   // Real backend: GET /api/consultants/{id}
   const { data } = await api.get(`/consultants/${id}`);
@@ -68,6 +77,7 @@ export async function createConsultant(payload) {
       availability: { Monday: [], Tuesday: [], Wednesday: [], Thursday: [], Friday: [], Saturday: [], Sunday: [] },
       ...payload,
     };
+    consultant.avatar = consultant.avatar || getDefaultAvatar(consultant.email || consultant.name || consultant.id);
     db.consultants.push(consultant);
     persist();
     return mockDelay(consultant);

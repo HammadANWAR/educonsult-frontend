@@ -71,9 +71,11 @@ export default function TopBar({ title }) {
             onClick={() => setMenuOpen((v) => !v)}
             className="flex items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-paper"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-ink-100 text-sm font-medium text-ink-600">
-              {user?.name?.[0]}
-            </div>
+            <img
+              src={user?.avatar}
+              alt={`${user?.name} profile`}
+              className="h-8 w-8 rounded-full bg-ink-100 object-cover"
+            />
             <span className="text-sm text-ink-600">{user?.name}</span>
             <ChevronDown size={15} className="text-ink-300" />
           </button>

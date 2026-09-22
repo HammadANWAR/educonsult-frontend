@@ -8,9 +8,11 @@ export default function Profile() {
     <DashboardLayout title="Profile">
       <div className="card max-w-lg p-6">
         <div className="mb-6 flex items-center gap-4">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-ink-50 font-serif text-2xl text-ink-600">
-            {user.name[0]}
-          </div>
+          <img
+            src={user.avatar}
+            alt={`${user.name} profile`}
+            className="h-16 w-16 rounded-full bg-ink-50 object-cover"
+          />
           <div>
             <h2 className="font-serif text-xl text-ink-700">{user.name}</h2>
             <p className="text-sm capitalize text-ink-400">{user.role}</p>

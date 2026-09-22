@@ -1,18 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Star, Briefcase } from 'lucide-react';
+import { getDefaultAvatar } from '../services/avatar';
 
 export default function ConsultantCard({ consultant }) {
+  const avatar = consultant.avatar || getDefaultAvatar(consultant.email || consultant.name || consultant.id);
+
   return (
     <div className="card flex flex-col gap-4 p-5">
       <div className="flex items-start justify-between gap-3">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ink-50 font-serif text-lg text-ink-600">
-          {consultant.name
-            .split(' ')
-            .map((w) => w[0])
-            .slice(0, 2)
-            .join('')}
-        </div>
+        <img src={avatar} alt={`${consultant.name} profile`} className="h-11 w-11 shrink-0 rounded-full bg-ink-50 object-cover" />
         <div className="flex items-center gap-1 text-sm text-ink-500">
           <Star size={14} className="fill-gold-400 text-gold-400" />
           {consultant.rating?.toFixed(1)}

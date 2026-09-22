@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Star, Briefcase, Calendar } from 'lucide-react';
 import DashboardLayout from '../../components/DashboardLayout';
 import { getConsultantById } from '../../services/consultantService';
+import { getDefaultAvatar } from '../../services/avatar';
 
 const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
@@ -22,14 +23,14 @@ export default function ConsultantDetails() {
     );
   }
 
+  const avatar = consultant.avatar || getDefaultAvatar(consultant.email || consultant.name || consultant.id);
+
   return (
     <DashboardLayout title="Consultant Profile">
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         <div className="card p-6 lg:col-span-2">
           <div className="flex items-start gap-4">
-            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-ink-50 font-serif text-2xl text-ink-600">
-              {consultant.name.split(' ').map((w) => w[0]).slice(0, 2).join('')}
-            </div>
+            <img src={avatar} alt={`${consultant.name} profile`} className="h-16 w-16 shrink-0 rounded-full bg-ink-50 object-cover" />
             <div>
               <h1 className="font-serif text-2xl text-ink-700">{consultant.name}</h1>
               <p className="text-ink-500">{consultant.title}</p>

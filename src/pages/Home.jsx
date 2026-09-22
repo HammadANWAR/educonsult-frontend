@@ -1,14 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  ArrowUpRight,
-  CalendarCheck,
-  Check,
-  GraduationCap,
-  MessageSquareText,
-  Search,
-  ShieldCheck,
-} from 'lucide-react';
+import { ArrowUpRight, CalendarCheck, Check, MessageSquareText, Search, ShieldCheck } from 'lucide-react';
 import ThemeToggle from '../components/ThemeToggle';
 
 const FEATURES = [
@@ -40,10 +32,8 @@ export default function Home() {
       <header className="sticky top-0 z-30 border-b border-line bg-white/95 shadow-sm backdrop-blur dark:bg-ink-800/95">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5">
           <a href="#home" className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-sm bg-ink-600 text-gold-300 shadow-sm">
-              <GraduationCap size={20} strokeWidth={1.8} />
-            </div>
-            <span className="font-serif text-lg text-ink-700">EduConsult</span>
+            <img src="/favicon.svg" alt="EduConsult" className="h-10 w-10 rounded-lg shadow-sm" />
+            <span className="font-serif text-lg font-semibold tracking-wide text-ink-700">EduConsult</span>
           </a>
           <nav aria-label="Main navigation" className="hidden items-center gap-7 md:flex">
             <a href="#home" className="text-sm font-medium text-ink-600 transition-colors hover:text-gold-600">
