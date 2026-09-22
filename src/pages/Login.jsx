@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { GraduationCap } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, GraduationCap } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const DEMO_ACCOUNTS = [
@@ -41,17 +41,47 @@ export default function Login() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-paper px-4 py-12">
-      <div className="w-full max-w-md">
-        <div className="mb-8 text-center">
-          <Link to="/" className="inline-flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-ink-600 text-gold-300">
-              <GraduationCap size={18} strokeWidth={1.8} />
+    <div className="min-h-screen bg-paper lg:grid lg:grid-cols-[.95fr_1.05fr]">
+      <div
+        className="relative hidden overflow-hidden bg-ink-700 bg-cover bg-center lg:block"
+        style={{
+          backgroundImage:
+            "linear-gradient(180deg, rgba(11, 18, 32, .35), rgba(11, 18, 32, .92)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1400&q=85')",
+        }}
+      >
+        <Link to="/" className="absolute left-10 top-9 inline-flex items-center gap-2 text-white">
+          <div className="flex h-9 w-9 items-center justify-center rounded-sm bg-gold-500 text-white">
+            <GraduationCap size={20} strokeWidth={1.8} />
             </div>
-            <span className="font-serif text-lg text-ink-700">EduConsult</span>
-          </Link>
+          <span className="font-serif text-lg">EduConsult</span>
+        </Link>
+        <div className="absolute bottom-12 left-10 right-10 text-white">
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.18em] text-gold-300">Welcome back</p>
+          <h1 className="max-w-lg font-serif text-5xl leading-tight">Make room for better guidance.</h1>
+          <ul className="mt-7 space-y-3 text-sm text-white/80">
+            {['Book time with the right consultant', 'Keep your consultation history in one place', 'Return to your goals whenever you need'].map((item) => (
+              <li key={item} className="flex items-center gap-3">
+                <CheckCircle2 size={17} className="text-gold-300" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
+      </div>
 
+      <div className="flex min-h-screen items-center justify-center px-4 py-12">
+        <div className="w-full max-w-md">
+          <Link to="/" className="mb-8 inline-flex items-center gap-2 text-sm text-ink-400 hover:text-ink-700">
+            <ArrowLeft size={16} /> Back to home
+          </Link>
+          <div className="mb-7 lg:hidden">
+            <Link to="/" className="inline-flex items-center gap-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-ink-600 text-gold-300">
+                <GraduationCap size={18} strokeWidth={1.8} />
+              </div>
+              <span className="font-serif text-lg text-ink-700">EduConsult</span>
+            </Link>
+          </div>
         <div className="card p-8">
           <h1 className="mb-1 font-serif text-2xl text-ink-700">Welcome back</h1>
           <p className="mb-6 text-sm text-ink-400">Sign in to manage your appointments.</p>
@@ -109,6 +139,7 @@ export default function Login() {
             ))}
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

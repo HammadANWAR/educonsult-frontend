@@ -1,6 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CalendarCheck, GraduationCap, Search, MessageSquareText, ShieldCheck, ArrowUpRight } from 'lucide-react';
+import {
+  ArrowUpRight,
+  CalendarCheck,
+  Check,
+  GraduationCap,
+  MessageSquareText,
+  Search,
+  ShieldCheck,
+} from 'lucide-react';
 
 const FEATURES = [
   {
@@ -89,6 +97,22 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="border-b border-line bg-white">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 divide-x divide-line px-6 py-7 sm:grid-cols-4">
+          {[
+            ['1,200+', 'student conversations'],
+            ['48', 'active consultants'],
+            ['12', 'departments connected'],
+            ['98%', 'successful bookings'],
+          ].map(([value, label]) => (
+            <div key={label} className="px-4 first:pl-0 last:pr-0 sm:px-6">
+              <p className="font-serif text-2xl text-ink-700">{value}</p>
+              <p className="mt-1 text-xs uppercase tracking-[0.12em] text-ink-300">{label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="border-t border-line bg-white py-16">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 sm:grid-cols-2 lg:grid-cols-4">
           {FEATURES.map(({ icon: Icon, title, body }) => (
@@ -101,15 +125,79 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="card flex flex-col items-start gap-4 p-10 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h2 className="font-serif text-2xl text-ink-700">Ready to see it in action?</h2>
-            <p className="mt-1 text-ink-500">Log in with any of the demo accounts on the sign-in page.</p>
+      <section className="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+        <div className="relative">
+          <img
+            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1100&q=85"
+            alt="Students collaborating in a bright classroom"
+            className="h-[420px] w-full object-cover"
+          />
+          <div className="absolute -bottom-5 right-5 max-w-[230px] bg-gold-500 p-5 text-white shadow-xl">
+            <p className="font-serif text-xl leading-tight">A clearer path starts with the right question.</p>
           </div>
-          <Link to="/login" className="btn-primary shrink-0 px-6 py-3">
-            Go to sign in
-          </Link>
+        </div>
+        <div className="lg:pl-8">
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.18em] text-gold-600">One place to move forward</p>
+          <h2 className="max-w-xl font-serif text-4xl leading-tight text-ink-700 sm:text-5xl">
+            Replace scattered emails with meaningful progress.
+          </h2>
+          <p className="mt-5 max-w-lg text-base leading-relaxed text-ink-500">
+            EduConsult gives every student a dependable way to ask for help, while giving every institution a living
+            picture of the support being delivered.
+          </p>
+          <ul className="mt-7 space-y-3 text-sm text-ink-600">
+            {['Availability that reflects real working hours', 'A complete record for every consultation', 'Simple oversight for departments and coordinators'].map((item) => (
+              <li key={item} className="flex items-center gap-3">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold-100 text-gold-700">
+                  <Check size={13} strokeWidth={2.5} />
+                </span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="bg-ink-50 py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-gold-600">Built around your day</p>
+              <h2 className="font-serif text-4xl text-ink-700">Support that feels human.</h2>
+            </div>
+            <p className="max-w-sm text-sm leading-relaxed text-ink-500">Every part of the experience is designed to make the next action obvious.</p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {[
+              ['Find your person', 'Search by department, expertise, or the kind of guidance you need.', 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=85'],
+              ['Choose your moment', 'See open slots at a glance and book without the back-and-forth.', 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=900&q=85'],
+              ['Keep moving', 'Return to your notes and appointments whenever the next question arrives.', 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85'],
+            ].map(([title, body, image]) => (
+              <article key={title} className="group overflow-hidden bg-white">
+                <img src={image} alt="" className="h-48 w-full object-cover grayscale transition duration-500 group-hover:grayscale-0" />
+                <div className="p-6">
+                  <h3 className="font-serif text-2xl text-ink-700">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-500">{body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <div className="relative overflow-hidden bg-ink-700 px-8 py-12 sm:px-12">
+          <div className="relative z-10 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-gold-300">Start with one conversation</p>
+              <h2 className="font-serif text-3xl text-white sm:text-4xl">Your next step is closer than you think.</h2>
+              <p className="mt-2 text-sm text-ink-100">Log in with a demo account or create your student profile.</p>
+            </div>
+            <Link to="/login" className="btn-gold shrink-0 px-6 py-3">
+              Go to sign in <ArrowUpRight size={17} />
+            </Link>
+          </div>
+          <div className="absolute -right-12 -top-24 h-64 w-64 rounded-full border-[32px] border-white/5" />
         </div>
       </section>
 
